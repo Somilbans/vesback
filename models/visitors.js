@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+
+
 const Schema = mongoose.Schema;
 
 var contactSchema = new Schema({
@@ -23,8 +25,8 @@ const visitorSchema = new Schema({
         timestamps: true
 });
     
-  
 
+ 
 var visitors = mongoose.model('Visitor', visitorSchema);
 
 module.exports = visitors;
