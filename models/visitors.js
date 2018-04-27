@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-
-
 const Schema = mongoose.Schema;
 
 var contactSchema = new Schema({
@@ -18,7 +16,14 @@ const visitorSchema = new Schema({
        mobilenum:{
             type: Number,
             required: true,
+            unique: false
         },
+         name:{
+            type: String,
+            required: false 
+            
+        },
+
        contactPersons:[contactSchema]
     },
      {

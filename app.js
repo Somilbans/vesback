@@ -8,13 +8,14 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var leaderRouter = require('./routes/leaderRouter');
 var visitorRouter = require('./routes/visitorRouter');
-
+var employeeRouter= require('./routes/employeeRouter');
 //mongo start code
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
 const leaders = require('./models/leaders');
 const visitors= require('./models/visitors');
+const employees = require('./models/employees');
 const url = 'mongodb://localhost:27017/ves';
 const connect = mongoose.connect(url, {
     useMongoClient: true,
@@ -49,8 +50,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// app.use('/leaders', leaderRouter);
+app.use('/leaders', leaderRouter);
 app.use('/visitors',visitorRouter);
+app.use('/employees',employeeRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
    console.log('unclaimed req route: %j', req.url)
